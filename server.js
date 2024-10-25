@@ -8,22 +8,12 @@ const cors = require('cors');
 
 const app = express();
 
-const corsOptions = {
-    origin: ['http://localhost:3000', 'https://your-frontend-url.netlify.app'], // Allow your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true, // Allow credentials
-  };
+app.use(cors());
 // Connect to MongoDB
 connectDB();
 
 // Middleware
 app.use(express.json());
-
-// CORS configuration
-
-app.use(cors(corsOptions))
-app.options('/api/user', cors(corsOptions)); // Preflight handling
 
 
 
