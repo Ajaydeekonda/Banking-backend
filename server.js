@@ -9,7 +9,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin:"http://localhost:3000"
+    origin:["http://localhost:3000/","https://localhost:3000/"]
 }));
 // Connect to MongoDB
 connectDB();
