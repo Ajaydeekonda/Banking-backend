@@ -13,7 +13,15 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+// CORS configuration
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow requests from your frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true, // Allow cookies and authorization headers
+}));
+
 
 // Routes
 app.use('/api/user', userRoutes);
